@@ -3,7 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>BQ Systems | Soluções Digitais</title>
+
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="shortcut icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
+  <meta name="description" content="Soluções digitais sob medida: sites, sistemas, aplicações web e mobile para empresas que querem crescer com tecnologia." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BQ Systems | Soluções Digitais" />
+  <meta property="og:description" content="Sites, sistemas e aplicações personalizadas para transformar ideias em soluções digitais que geram resultados." />
+  <meta property="og:image" content="https://SEU-DOMINIO.com/logo.png" />
+  <meta property="og:url" content="https://SEU-DOMINIO.com/" />
+  <meta property="og:site_name" content="BQ Systems" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BQ Systems | Soluções Digitais" />
+  <meta name="twitter:description" content="Soluções digitais sob medida para sites, sistemas, web e mobile." />
+  <meta name="twitter:image" content="https://SEU-DOMINIO.com/logo.png" />
 
   <style>
     :root {
@@ -58,7 +77,7 @@
     }
 
     .nav {
-      height: 76px;
+      height: 84px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -68,13 +87,26 @@
     .logo {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
+    }
+
+    .logo-shell {
+      padding: 8px 12px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
     }
 
     .logo-img {
-      width: 128px;
+      width: 170px;
       height: auto;
       display: block;
       object-fit: contain;
+    }
+
+    .footer .logo-img {
+      width: 150px;
     }
 
     .menu {
@@ -225,15 +257,6 @@
       overflow: hidden;
     }
 
-    .web-screen::after {
-      content: "";
-      position: absolute;
-      inset: auto -18% -34% 12%;
-      height: 160px;
-      background: radial-gradient(circle, rgba(91, 95, 247, 0.32), transparent 68%);
-      pointer-events: none;
-    }
-
     .screen-top {
       height: 34px;
       display: flex;
@@ -282,10 +305,6 @@
 
     .web-sidebar span:first-child {
       background: linear-gradient(90deg, #5b5ff7, #38bdf8);
-    }
-
-    .web-content {
-      min-width: 0;
     }
 
     .metric-row {
@@ -339,13 +358,6 @@
       opacity: 0.96;
     }
 
-    .chart::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(2, 6, 23, 0.28), transparent);
-    }
-
     .app-screen {
       position: absolute;
       z-index: 3;
@@ -355,19 +367,9 @@
       min-height: 318px;
       padding: 18px 14px 16px;
       border-radius: 32px;
-      background:
-        linear-gradient(160deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+      background: linear-gradient(160deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
       border: 1px solid rgba(148, 163, 184, 0.24);
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.62);
-    }
-
-    .app-screen::before {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border-radius: 26px;
-      border: 1px solid rgba(91, 95, 247, 0.12);
-      pointer-events: none;
     }
 
     .app-speaker {
@@ -642,10 +644,6 @@
       display: block;
     }
 
-    .footer a:hover {
-      color: var(--white);
-    }
-
     .copy {
       margin-top: 30px;
       padding-top: 20px;
@@ -663,16 +661,8 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-visual {
-        min-height: 480px;
-      }
-
       .web-screen {
         transform: none;
-      }
-
-      .app-screen {
-        right: 18px;
       }
 
       .services {
@@ -694,11 +684,15 @@
       }
 
       .nav {
-        height: 68px;
+        height: 74px;
       }
 
       .logo-img {
-        width: 108px;
+        width: 132px;
+      }
+
+      .footer .logo-img {
+        width: 132px;
       }
 
       .header .btn {
@@ -721,16 +715,6 @@
         min-height: 430px;
       }
 
-      .device-glow {
-        width: 92%;
-        height: 70%;
-      }
-
-      .web-screen {
-        min-height: 330px;
-        padding: 18px;
-      }
-
       .web-layout {
         grid-template-columns: 1fr;
       }
@@ -741,14 +725,6 @@
 
       .metric-row {
         grid-template-columns: 1fr;
-      }
-
-      .metric {
-        padding: 14px;
-      }
-
-      .metric strong {
-        font-size: 22px;
       }
 
       .chart {
@@ -762,14 +738,6 @@
         bottom: 18px;
         padding: 14px 11px;
         border-radius: 26px;
-      }
-
-      .app-balance strong {
-        font-size: 15px;
-      }
-
-      .app-list div {
-        height: 30px;
       }
 
       .services {
@@ -796,7 +764,7 @@
 <body>
   <header class="header">
     <div class="container nav">
-      <a href="#inicio" class="logo" aria-label="BQ Systems">
+      <a href="#inicio" class="logo logo-shell" aria-label="BQ Systems">
         <img src="logo.png" alt="BQ Systems" class="logo-img" />
       </a>
 
@@ -852,21 +820,16 @@
             <div class="screen-top">
               <span>Dashboard Web</span>
               <div class="screen-actions">
-                <i></i>
-                <i></i>
-                <i></i>
+                <i></i><i></i><i></i>
               </div>
             </div>
 
             <div class="web-layout">
               <aside class="web-sidebar">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span><span></span>
               </aside>
 
-              <div class="web-content">
+              <div>
                 <div class="metric-row">
                   <div class="metric">
                     <small>Projetos</small>
@@ -903,25 +866,10 @@
             </div>
 
             <div class="app-list">
-              <div>
-                <i></i>
-                <span></span>
-              </div>
-
-              <div>
-                <i></i>
-                <span></span>
-              </div>
-
-              <div>
-                <i></i>
-                <span></span>
-              </div>
-
-              <div>
-                <i></i>
-                <span></span>
-              </div>
+              <div><i></i><span></span></div>
+              <div><i></i><span></span></div>
+              <div><i></i><span></span></div>
+              <div><i></i><span></span></div>
             </div>
           </div>
         </div>
@@ -1050,7 +998,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="#inicio" class="logo" aria-label="BQ Systems">
+          <a href="#inicio" class="logo logo-shell" aria-label="BQ Systems">
             <img src="logo.png" alt="BQ Systems" class="logo-img" />
           </a>
 

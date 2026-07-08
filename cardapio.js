@@ -12,7 +12,7 @@
   serverTimestamp
 } from "./firebase.js";
 import { calculatePaymentFee } from "./taxas.js";
-import { getClientByWhatsApp, upsertClient } from "./clientes.js";
+import { getClientByWhatsApp, upsertClient } from "./clientes.js?v=client-upsert-1";
 import { formToObject, money, normalizePhone, requireParam, setMessage, whatsappLink } from "./utils.js";
 
 const state = {
@@ -970,7 +970,14 @@ async function lookupCheckoutClient(whatsappValue, options = {}) {
   const whatsapp = normalizePhone(whatsappValue || form.elements.whatsapp.value);
   if (!whatsapp) return;
   setMessage($("#client-lookup-message"), "Buscando cadastro...");
-  const client = await getClientByWhatsApp(state.estabelecimentoId, whatsapp);
+  let client = null;
+  try {
+    client = await getClientByWhatsApp(state.estabelecimentoId, whatsapp);
+  } catch (error) {
+    console.warn("Não foi possível buscar cadastro do cliente:", error);
+    if (!options.silent) setMessage($("#client-lookup-message"), "Preencha seus dados para finalizar. O cadastro será salvo para a próxima compra.");
+    return;
+  }
   if (!client) {
     if (!options.silent) setMessage($("#client-lookup-message"), "Cliente novo. Complete os dados para finalizar.");
     return;

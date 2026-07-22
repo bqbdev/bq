@@ -66,6 +66,10 @@
       overflow: hidden;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -547,7 +551,8 @@
     }
 
     .portfolio-image-btn,
-    .portfolio-placeholder {
+    .portfolio-placeholder,
+    .portfolio-site-preview {
       width: 100%;
       aspect-ratio: 16 / 10;
       height: auto;
@@ -577,6 +582,32 @@
     .portfolio-image-btn:focus-visible {
       outline: 3px solid rgba(91, 95, 247, 0.75);
       outline-offset: 3px;
+    }
+
+    .portfolio-site-preview {
+      position: relative;
+      background: #fff;
+    }
+
+    .portfolio-site-preview iframe {
+      width: 200%;
+      height: 200%;
+      border: 0;
+      transform: scale(0.5);
+      transform-origin: top left;
+      pointer-events: none;
+      background: #fff;
+    }
+
+    .portfolio-site-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .portfolio-site-actions .btn {
+      min-height: 38px;
+      padding-inline: 14px;
     }
 
     .portfolio-placeholder {
@@ -662,6 +693,78 @@
     .portfolio-lightbox-close:hover {
       background: rgba(30, 41, 59, 0.98);
     }
+
+    .admin-trigger {
+      margin-top: 16px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #64748b;
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+    }
+
+    .admin-trigger:hover { color: var(--white); }
+
+    .admin-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(2, 6, 23, 0.9);
+      backdrop-filter: blur(12px);
+    }
+
+    .admin-modal.is-open { display: flex; }
+
+    .admin-panel {
+      position: relative;
+      width: min(980px, 100%);
+      max-height: 92vh;
+      overflow: auto;
+      padding: 30px;
+      border-radius: 12px;
+      background: #0f172a;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.65);
+    }
+
+    .admin-panel h2 { font-size: 30px; }
+    .admin-help { color: var(--muted); margin: 10px 0 24px; line-height: 1.6; }
+    .admin-close { top: 14px; right: 14px; }
+
+    .admin-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .admin-field { display: grid; gap: 8px; }
+    .admin-field-full { grid-column: 1 / -1; }
+    .admin-field label { font-size: 13px; font-weight: 800; color: #cbd5e1; }
+    .admin-field input,
+    .admin-field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: #020617;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .admin-field textarea { min-height: 110px; resize: vertical; }
+    .admin-form-actions { display: flex; flex-wrap: wrap; gap: 10px; grid-column: 1 / -1; }
+    .admin-status { min-height: 22px; margin-top: 14px; color: #86efac; font-size: 14px; }
+    .admin-list { display: grid; gap: 10px; margin-top: 24px; }
+    .admin-item { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px; border-radius: 8px; background: #020617; border: 1px solid rgba(148, 163, 184, 0.14); }
+    .admin-item span { color: var(--muted); font-size: 13px; }
+    .admin-item-actions { display: flex; gap: 8px; }
+    .admin-item-actions button { min-height: 34px; padding: 0 12px; }
 
     .cta {
       padding: 42px;
@@ -870,6 +973,12 @@
         right: 8px;
       }
 
+      .admin-panel { padding: 24px 18px; }
+      .admin-form { grid-template-columns: 1fr; }
+      .admin-field-full { grid-column: auto; }
+      .admin-form-actions { grid-column: auto; }
+      .admin-item { align-items: flex-start; flex-direction: column; }
+
       .footer-grid {
         grid-template-columns: 1fr;
       }
@@ -1047,39 +1156,7 @@
           </p>
         </div>
 
-        <div class="portfolio-grid">
-          <article class="portfolio-card">
-            <button class="portfolio-image-btn" type="button" data-full="bqagenda.png" data-title="bq agenda" aria-label="Ampliar imagem do projeto bq agenda">
-              <img src="bqagenda.png" alt="bq Agenda">
-            </button>
-            <h3>bq agenda</h3>
-            <p>Organize seus agendamentos, confirme pelo WhatsApp, acompanhe seus clientes e controle seus ganhos em uma plataforma simples, web e pronta para usar.</p>
-          </article>
-
-          <article class="portfolio-card">
-            <button class="portfolio-image-btn" type="button" data-full="impacto-visual.png" data-title="Impacto Visual" aria-label="Ampliar imagem do projeto Impacto Visual">
-              <img src="impacto-visual.png" alt="Impacto Visual">
-            </button>
-            <h3>Impacto Visual</h3>
-            <p>Site institucional moderno com painel administrativo completo para gestão de conteúdos, materiais e informações comerciais.</p>
-          </article>
-
-          <article class="portfolio-card">
-            <button class="portfolio-image-btn" type="button" data-full="chocorb.png" data-title="ChocoRB" aria-label="Ampliar imagem do projeto ChocoRB">
-              <img src="chocorb.png" alt="ChocoRB">
-            </button>
-            <h3>ChocoRB</h3>
-            <p>Choco RB é um sistema desenvolvido sob medida para atender às necessidades da empresa, reunindo cardápio digital, gestão de pedidos, painel administrativo, controle financeiro, estoque e relatórios em uma plataforma moderna, intuitiva e totalmente personalizada para o seu modelo de negócio.</p>
-          </article>
-
-          <article class="portfolio-card">
-            <button class="portfolio-image-btn" type="button" data-full="cheguei.png" data-title="Cheguei Delivery" aria-label="Ampliar imagem do projeto Cheguei Delivery">
-              <img src="cheguei.png" alt="Cheguei Delivery">
-            </button>
-            <h3>Cheguei Delivery</h3>
-            <p>Plataforma de gestão para delivery com aplicativos para motoboys, painel para estabelecimentos e sistema administrativo. Desenvolvida para centralizar pedidos, acompanhar entregas e oferecer controle operacional de forma simples, moderna e escalável.</p>
-          </article>
-        </div>
+        <div class="portfolio-grid" id="portfolioGrid"></div>
       </div>
     </section>
 
@@ -1177,11 +1254,126 @@
     </div>
   </footer>
 
+  <script src="projetos.js"></script>
   <script>
+    /* Código administrativo local desativado. Os projetos agora vêm de projetos.js. */
+    if (false) {
+    const STORAGE_KEY = "bqsystems_portfolio_v1";
+    const projetosIniciais = [
+      { id: "bq-agenda", title: "bq agenda", description: "Organize seus agendamentos, confirme pelo WhatsApp, acompanhe seus clientes e controle seus ganhos em uma plataforma simples, web e pronta para usar.", image: "bqagenda.png", url: "" },
+      { id: "impacto-visual", title: "Impacto Visual", description: "Site institucional moderno com painel administrativo completo para gestão de conteúdos, materiais e informações comerciais.", image: "impacto-visual.png", url: "" },
+      { id: "chocorb", title: "ChocoRB", description: "Sistema desenvolvido sob medida, reunindo cardápio digital, gestão de pedidos, painel administrativo, controle financeiro, estoque e relatórios.", image: "chocorb.png", url: "" },
+      { id: "cheguei-delivery", title: "Cheguei Delivery", description: "Plataforma de gestão para delivery com aplicativos para motoboys, painel para estabelecimentos e sistema administrativo.", image: "cheguei.png", url: "" }
+    ];
+
     const lightbox = document.getElementById("portfolioLightbox");
     const lightboxImage = document.getElementById("portfolioLightboxImage");
     const lightboxTitle = document.getElementById("portfolioLightboxTitle");
     const lightboxClose = document.getElementById("portfolioLightboxClose");
+    const portfolioGrid = document.getElementById("portfolioGrid");
+    const adminModal = document.getElementById("adminModal");
+    const adminList = document.getElementById("adminList");
+    const adminStatus = document.getElementById("adminStatus");
+    const portfolioForm = document.getElementById("portfolioForm");
+    const projectId = document.getElementById("projectId");
+    const projectTitle = document.getElementById("projectTitle");
+    const projectUrl = document.getElementById("projectUrl");
+    const projectDescription = document.getElementById("projectDescription");
+    const projectImage = document.getElementById("projectImage");
+    let projetos = carregarProjetos();
+
+    function carregarProjetos() {
+      try {
+        const salvos = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        return Array.isArray(salvos) ? salvos : structuredClone(projetosIniciais);
+      } catch {
+        return structuredClone(projetosIniciais);
+      }
+    }
+
+    function salvarProjetos() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(projetos));
+    }
+
+    function criarElemento(tag, classe, texto) {
+      const elemento = document.createElement(tag);
+      if (classe) elemento.className = classe;
+      if (texto) elemento.textContent = texto;
+      return elemento;
+    }
+
+    function normalizarUrl(valor) {
+      const url = valor.trim();
+      if (!url) return "";
+      return /^https?:\/\//i.test(url) ? url : `https://${url}`;
+    }
+
+    function renderizarPortfolio() {
+      portfolioGrid.replaceChildren();
+      projetos.forEach((projeto) => {
+        const card = criarElemento("article", "portfolio-card");
+
+        if (projeto.url) {
+          const preview = criarElemento("div", "portfolio-site-preview");
+          const frame = document.createElement("iframe");
+          frame.src = projeto.url;
+          frame.title = `Prévia do site ${projeto.title}`;
+          frame.loading = "lazy";
+          frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms allow-popups");
+          preview.append(frame);
+          card.append(preview);
+        } else if (projeto.image) {
+          const botao = criarElemento("button", "portfolio-image-btn");
+          botao.type = "button";
+          botao.dataset.full = projeto.image;
+          botao.dataset.title = projeto.title;
+          botao.setAttribute("aria-label", `Ampliar imagem do projeto ${projeto.title}`);
+          const imagem = document.createElement("img");
+          imagem.src = projeto.image;
+          imagem.alt = projeto.title;
+          botao.append(imagem);
+          botao.addEventListener("click", () => abrirImagemProjeto(botao));
+          card.append(botao);
+        } else {
+          card.append(criarElemento("div", "portfolio-placeholder", "Projeto sem imagem"));
+        }
+
+        card.append(criarElemento("h3", "", projeto.title));
+        card.append(criarElemento("p", "", projeto.description));
+
+        if (projeto.url) {
+          const actions = criarElemento("div", "portfolio-site-actions");
+          const link = criarElemento("a", "btn btn-primary", "Abrir site");
+          link.href = projeto.url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          actions.append(link);
+          card.append(actions);
+        }
+
+        portfolioGrid.append(card);
+      });
+    }
+
+    function renderizarListaAdmin() {
+      adminList.replaceChildren();
+      projetos.forEach((projeto) => {
+        const item = criarElemento("div", "admin-item");
+        const info = document.createElement("div");
+        info.append(criarElemento("strong", "", projeto.title));
+        info.append(criarElemento("span", "", projeto.url ? " • prévia por link" : " • imagem"));
+        const actions = criarElemento("div", "admin-item-actions");
+        const editar = criarElemento("button", "btn btn-outline", "Editar");
+        editar.type = "button";
+        editar.addEventListener("click", () => editarProjeto(projeto.id));
+        const excluir = criarElemento("button", "btn btn-outline", "Excluir");
+        excluir.type = "button";
+        excluir.addEventListener("click", () => excluirProjeto(projeto.id));
+        actions.append(editar, excluir);
+        item.append(info, actions);
+        adminList.append(item);
+      });
+    }
 
     function abrirImagemProjeto(botao) {
       const imagem = botao.dataset.full;
@@ -1205,8 +1397,94 @@
       lightboxTitle.textContent = "";
     }
 
-    document.querySelectorAll(".portfolio-image-btn").forEach((botao) => {
-      botao.addEventListener("click", () => abrirImagemProjeto(botao));
+    function abrirAdmin() {
+      renderizarListaAdmin();
+      adminModal.classList.add("is-open");
+      adminModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("modal-open");
+      projectTitle.focus();
+    }
+
+    function fecharAdmin() {
+      adminModal.classList.remove("is-open");
+      adminModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+    }
+
+    function limparFormulario() {
+      portfolioForm.reset();
+      projectId.value = "";
+      adminStatus.textContent = "";
+    }
+
+    function editarProjeto(id) {
+      const projeto = projetos.find((item) => item.id === id);
+      if (!projeto) return;
+      projectId.value = projeto.id;
+      projectTitle.value = projeto.title;
+      projectUrl.value = projeto.url || "";
+      projectDescription.value = projeto.description;
+      adminStatus.textContent = projeto.image ? "A imagem atual será mantida se você não selecionar outra." : "";
+      projectTitle.focus();
+    }
+
+    function excluirProjeto(id) {
+      const projeto = projetos.find((item) => item.id === id);
+      if (!projeto || !confirm(`Excluir o projeto “${projeto.title}”?`)) return;
+      projetos = projetos.filter((item) => item.id !== id);
+      salvarProjetos();
+      renderizarPortfolio();
+      renderizarListaAdmin();
+      limparFormulario();
+    }
+
+    function lerImagem(arquivo) {
+      return new Promise((resolve, reject) => {
+        if (!arquivo) return resolve("");
+        if (arquivo.size > 2 * 1024 * 1024) return reject(new Error("Use uma imagem de até 2 MB."));
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error("Não foi possível ler a imagem."));
+        reader.readAsDataURL(arquivo);
+      });
+    }
+
+    portfolioForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      adminStatus.textContent = "Salvando...";
+      try {
+        const existente = projetos.find((item) => item.id === projectId.value);
+        const novaImagem = await lerImagem(projectImage.files[0]);
+        const projeto = {
+          id: existente?.id || `projeto-${Date.now()}`,
+          title: projectTitle.value.trim(),
+          description: projectDescription.value.trim(),
+          url: normalizarUrl(projectUrl.value),
+          image: novaImagem || existente?.image || ""
+        };
+        if (!projeto.url && !projeto.image) throw new Error("Adicione uma imagem, um link ou ambos.");
+        if (existente) projetos = projetos.map((item) => item.id === existente.id ? projeto : item);
+        else projetos.push(projeto);
+        salvarProjetos();
+        renderizarPortfolio();
+        renderizarListaAdmin();
+        limparFormulario();
+        adminStatus.textContent = "Projeto salvo com sucesso.";
+      } catch (erro) {
+        adminStatus.textContent = erro.name === "QuotaExceededError" ? "A imagem é grande demais para o armazenamento do navegador." : erro.message;
+      }
+    });
+
+    document.getElementById("adminOpen").addEventListener("click", abrirAdmin);
+    document.getElementById("adminClose").addEventListener("click", fecharAdmin);
+    document.getElementById("adminCancel").addEventListener("click", limparFormulario);
+    document.getElementById("adminReset").addEventListener("click", () => {
+      if (!confirm("Restaurar os projetos iniciais e remover as alterações locais?")) return;
+      projetos = structuredClone(projetosIniciais);
+      salvarProjetos();
+      renderizarPortfolio();
+      renderizarListaAdmin();
+      limparFormulario();
     });
 
     lightboxClose.addEventListener("click", fecharImagemProjeto);
@@ -1217,11 +1495,21 @@
       }
     });
 
+    adminModal.addEventListener("click", (event) => {
+      if (event.target === adminModal) fecharAdmin();
+    });
+
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
         fecharImagemProjeto();
+      } else if (event.key === "Escape" && adminModal.classList.contains("is-open")) {
+        fecharAdmin();
       }
     });
+
+    renderizarPortfolio();
+    }
   </script>
+  <script src="portfolio.js"></script>
 </body>
 </html>

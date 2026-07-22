@@ -32,6 +32,12 @@ window.PORTFOLIO_PROJECTS = [
     descricao: "Plataforma de gestão para delivery com aplicativos para motoboys, painel para estabelecimentos e sistema administrativo.",
     imagem: "cheguei.png",
     link: ""
+  },
+  {
+    titulo: "bq menu",
+    descricao: "Seu negócio vendendo pelo WhatsApp com mais controle e cara profissional.",
+    imagem: "nome-da-imagem.png",
+    link: "https://bqmenu.bqsystems.com.br/"
   }
 
   /* EXEMPLO PARA COPIAR:
